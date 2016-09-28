@@ -1,12 +1,10 @@
 {
-  "name": "reddo",
+  "name": "susquare",
   "version": "0.1.0",
   "description": "TODO",
   "main": "server.js",
   "scripts": {
-    "start": "babel-node server.js",
-    "test": "mocha --compilers js:babel-core/register --recursive --reporter min tests",
-    "watch": "mocha --compilers js:babel-core/register --recursive --reporter min --watch tests"
+    "start": "babel-node server.js"
   },
   "author": "",
   "license": "ISC",
