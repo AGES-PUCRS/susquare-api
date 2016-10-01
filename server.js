@@ -27,23 +27,26 @@ server.post('/user', (req, res, next) => {
 server.get('/estabelecimentos', (req, res, next) => {
     let endpoint = url + 'estabelecimentos'
 
-    axios.get(endpoint)
-        .then(response => {
-            res.send(response.data)
-        })
-        .catch(error => res.send(error))
+    const options = req.params
+
+        axios.get(endpoint, {
+                params: options
+            })
+            .then(response => res.send(response.data))
+            .catch(error => res.send(error))
 })
 
 server.get('/estabelecimentos/:id', (req, res, next) => {
     let endpoint = url + 'estabelecimentos/unidade/' + req.params.id
 
     axios.get(endpoint)
-        .then(response => res.send(200, response.data))
-        .catch(errorMessage => res.send(errorMessage))
+       .then(response => res.send(200, response.data))
+       .catch(errorMessage => res.send(errorMessage))
 })
 
 server.get('/estabelecimentos/:id/servicos/', (req, res, next) => {
     const endpoint = url + 'servicos/unidade/' + req.params.id
+
     axios.get(endpoint)
         .then(response => res.send(response.data))
         .catch(errorMessage => res.send(errorMessage))
