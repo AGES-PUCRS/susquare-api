@@ -73,10 +73,21 @@ server.get('/estabelecimentos/:id/especialidades', (req, res, next) => {
 
 server.get('/estabelecimentos/latitude/:latitude/longitude/:longitude/raio/:radius', (req, res, next) => {
     const endpoint = url + 'estabelecimentos/latitude/' + req.params.latitude + '/longitude/' + req.params.longitude + '/raio/' + req.params.radius
+    
+    const options = {
+        texto: req.params.texto || null,
+        categoria: req.params.categoria || null,
+        campos: req.params.campos || null,
+        pagina: req.params.pagina || null,
+        quantidade: req.params.quantidade || 200
+    }
 
-    axios.get(endpoint)
+    axios.get(endpoint, {
+            params: options
+        })
         .then(response => res.send(response.data))
-        .catch(errorMessage => res.send(errorMessage))
+        .catch(error => res.send(error))
+})
 })
 
 server.listen(config.port, () => {
