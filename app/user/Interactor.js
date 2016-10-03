@@ -5,6 +5,7 @@ export default class UserInteractor {
 
     create(inputMessage) {
         let userEntity = new this.userEntity
+        
         return userEntity.createValidation(inputMessage)
             .then(outputMessage => userEntity.create(outputMessage))
     }

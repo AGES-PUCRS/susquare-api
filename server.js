@@ -7,6 +7,8 @@ const url = 'http://mobile-aceite.tcu.gov.br:80/mapa-da-saude/rest/'
 
 let server = restify.createServer()
 
+server.pre(restify.sanitizePath())
+
 server.use(restify.bodyParser())
 
 server.use(restify.queryParser())
@@ -29,11 +31,11 @@ server.get('/estabelecimentos', (req, res, next) => {
 
     const options = req.params
 
-        axios.get(endpoint, {
-                params: options
-            })
-            .then(response => res.send(response.data))
-            .catch(error => res.send(error))
+    axios.get(endpoint, {
+            params: options
+        })
+        .then(response => res.send(response.data))
+        .catch(error => res.send(error))
 })
 
 server.get('/estabelecimentos/:id', (req, res, next) => {
@@ -66,6 +68,14 @@ server.get('/estabelecimentos/:id/especialidades', (req, res, next) => {
 
     axios.get(endpoint)
         .then(data => res.send(response.data))
+        .catch(errorMessage => res.send(errorMessage))
+})
+
+server.get('/estabelecimentos/latitude/:latitude/longitude/:longitude/raio/:radius', (req, res, next) => {
+    const endpoint = url + 'estabelecimentos/latitude/' + req.params.latitude + '/longitude/' + req.params.longitude + '/raio/' + req.params.radius
+
+    axios.get(endpoint)
+        .then(response => res.send(response.data))
         .catch(errorMessage => res.send(errorMessage))
 })
 
