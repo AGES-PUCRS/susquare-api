@@ -88,8 +88,9 @@ server.get('/estabelecimentos/latitude/:latitude/longitude/:longitude/raio/:radi
         .then(response => res.send(response.data))
         .catch(error => res.send(error))
 })
-})
 
 server.listen(config.port, () => {
     console.log('Server listening at ' + config.port)
 })
+
+console.log(process.memoryUsage())
