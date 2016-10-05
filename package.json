@@ -4,9 +4,8 @@
   "description": "TODO",
   "main": "server.js",
   "scripts": {
-    "clean": "rm -r ./production && mkdir production",
     "build-server": "babel -d ./production ./development -s",
-    "build": "npm clean && npm build-server",
+    "build": "npm run build-server",
     "start": "node ./production/server.js"
   },
   "author": "",
