@@ -6,7 +6,9 @@
   "scripts": {
     "build-server": "babel -d ./production ./development -s",
     "build": "npm run build-server",
-    "start": "node ./production/server.js"
+    "start": "node ./production/server.js",
+    "test": "mocha --require babel-core/register  --recursive --reporter nyan development/tests/**/*.js",
+    "watch": "mocha --require babel-core/register --recursive --reporter nyan --watch development/tests/**/*.js"
   },
   "author": "",
   "license": "ISC",
@@ -17,14 +19,13 @@
     "node-uuid": "^1.4.7",
     "restify": "^4.1.1",
     "babel-cli": "^6.11.4",
-    "babel-preset-es2015": "^6.9.0",
-    "babel-plugin-transform-object-rest-spread": "^6.8.0"
+    "babel-plugin-transform-object-rest-spread": "^6.8.0",
+    "babel-preset-es2015": "^6.16.0"
   },
   "devDependencies": {
     "expect.js": "^0.3.1",
     "gulp": "^3.9.1",
     "gulp-livereload": "^3.8.1",
-    "gulp-mocha": "^2.2.0",
-    "gulp-scss": "^1.4.0"
+    "gulp-mocha": "^2.2.0"
   }
 }
