@@ -1,13 +1,12 @@
 require('babel-core/register');
 var gulp = require('gulp');
 var mocha = require('gulp-mocha');
-var babel = require('gulp-babel');
 
 gulp.task('test', function() {
-    return gulp.src(['tests/*/*.js'])
-        .pipe(mocha());
+    return gulp.src(['./development/tests/*/*.js'])
+        .pipe(mocha({reporter: 'nyan'}));
 });
 
 gulp.task('default', ['test'], function() {
-    gulp.watch(['tests/*/*.js', 'app.js', 'app/*/*.js'], ['test']);
+    gulp.watch(['./development/tests/*/*.js', './development/app/*/*.js'], ['test']);
 });
