@@ -1,11 +1,10 @@
 require('babel-core/register');
 var gulp = require('gulp');
 var mocha = require('gulp-mocha');
-var babel = require('gulp-babel');
 
 gulp.task('test', function() {
     return gulp.src(['./development/tests/*/*.js'])
-        .pipe(mocha());
+        .pipe(mocha({reporter: 'nyan'}));
 });
 
 gulp.task('default', ['test'], function() {

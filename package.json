@@ -7,8 +7,9 @@
     "build-server": "babel -d ./production ./development -s",
     "build": "npm run build-server",
     "start": "node ./production/server.js",
-    "test": "mocha --require babel-core/register  --recursive --reporter nyan development/tests/**/*.js",
-    "watch": "mocha --require babel-core/register --recursive --reporter nyan --watch development/tests/**/*.js"
+    "start-dev": "nodemon ./production/server.js",
+    "test": "mocha --compilers js:babel-core/register  --recursive --reporter nyan -c development/tests/**/*.js",
+    "watch": "mocha --compilers js:babel-core/register --recursive --reporter nyan -c --watch development/tests/**/*.js"
   },
   "author": "",
   "license": "ISC",
