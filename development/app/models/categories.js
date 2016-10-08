@@ -1,38 +1,38 @@
 module.exports = [
     {
-        "descricaoCategoria":"HOSPITAL"
+        descricaoCategoria:"HOSPITAL"
     },
     {
-        "descricaoCategoria":"POSTO DE SAÚDE"
+        descricaoCategoria:"POSTO DE SAÚDE"
     },
     {
-        "descricaoCategoria":"URGÊNCIA"
+        descricaoCategoria:"URGÊNCIA"
     },
     {
-        "descricaoCategoria":"SAMU"
+        descricaoCategoria:"SAMU"
     },
     {
-        "descricaoCategoria":"FARMÁCIA"
+        descricaoCategoria:"FARMÁCIA"
     },
     {
-        "descricaoCategoria":"CLÍNICA"
+        descricaoCategoria:"CLÍNICA"
     },
     {
-        "descricaoCategoria":"CONSULTÓRIO"
+        descricaoCategoria:"CONSULTÓRIO"
     },
     {
-        "descricaoCategoria":"LABORATÓRIO"
+        descricaoCategoria:"LABORATÓRIO"
     },
     {
-        "descricaoCategoria":"APOIO À SAÚDE"
+        descricaoCategoria:"APOIO À SAÚDE"
     },
     {
-        "descricaoCategoria":"ATENÇÃO ESPECÍFICA"
+        descricaoCategoria:"ATENÇÃO ESPECÍFICA"
     },
     {
-        "descricaoCategoria":"UNIDADE ADMINISTRATIVA"
+        descricaoCategoria:"UNIDADE ADMINISTRATIVA"
     },
     {
-        "descricaoCategoria":"ATENDIMENTO DOMICILIAR"
+        descricaoCategoria:"ATENDIMENTO DOMICILIAR"
     }
 ]
