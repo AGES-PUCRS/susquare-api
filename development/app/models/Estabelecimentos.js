@@ -2,13 +2,13 @@ import mongoose from 'mongoose'
 
 export default mongoose.model('Estabelecimento', {
       codUnidade: String,
-	  codCnes: Number,
+	codCnes: Number,
       codIbge: Number,
-	  cnpj: String,
+	cnpj: String,
       nomeFantasia: String,
-	  natureza: String,
-	  tipoUnidade: String,
-	  esferaAdministrativa: String,
+	natureza: String,
+	tipoUnidade: String,
+	esferaAdministrativa: String,
       vinculoSus: String,
       retencao: String,
       fluxoClientela: String,
