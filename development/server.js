@@ -4,6 +4,7 @@ import axios from 'axios'
 import mock from '../susquare.js'
 import UserTranslator from './app/user/Translator'
 import Attendancetranslator from './app/attendance/Translator'
+import Categories from './app/models/Categories'
 import db from './app/models/db'
 
 const url = 'http://mobile-aceite.tcu.gov.br:80/mapa-da-saude/rest/'
@@ -41,6 +42,10 @@ server.get('/estabelecimentos', (req, res, next) => {
     //     })
     //     .then(response => res.send(response.data))
     //     .catch(error => res.send(error))
+})
+
+server.get('/estabelecimentos/categorias', (req, res, next) => {
+	res.send(Categories)
 })
 
 server.get('/estabelecimentos/:id', (req, res, next) => {
