@@ -1,8 +1,10 @@
 import restify from 'restify'
 import config from './config'
-import UserTranslator from './app/user/Translator'
 import axios from 'axios'
 import mock from '../susquare.js'
+import UserTranslator from './app/user/Translator'
+import Attendancetranslator from './app/attendance/Translator'
+import db from './app/models/db'
 
 const url = 'http://mobile-aceite.tcu.gov.br:80/mapa-da-saude/rest/'
 
@@ -90,6 +92,11 @@ server.get('/estabelecimentos/latitude/:latitude/longitude/:longitude/raio/:radi
         })
         .then(response => res.send(response.data))
         .catch(error => res.send(error))
+})
+
+server.post('/attendance', (req, res, next) => {
+    let attendanceTranslator = new Attendancetranslator
+    attendanceTranslator.post(req, res, next)
 })
 
 server.listen(config.port, () => {
