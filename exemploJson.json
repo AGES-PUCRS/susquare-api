@@ -1,0 +1,11 @@
+{
+      "codUnidade": "String",
+      "checkInMetodo": "10000",
+      "latCheckIn": "10000",
+      "longCheckIn": "String",
+      "timestampCheckIn": "String",
+      "dispositivoModelo": "String",
+      "dispositivoMarca": "String",
+      "dispositivoSisOp": "String",
+      "dispositivoSisOpVersao": "String",
+}
