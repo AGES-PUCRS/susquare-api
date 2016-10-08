@@ -25,3 +25,4 @@ process.on('SIGINT', () => {
 })
 
 require('./Attendance').default
+require('./Establishment').default

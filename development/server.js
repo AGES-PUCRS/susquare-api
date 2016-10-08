@@ -5,7 +5,7 @@ import mock from '../susquare.js'
 import UserTranslator from './app/user/Translator'
 import Attendancetranslator from './app/attendance/Translator'
 import db from './app/models/db'
-import categories from '../categories.js'
+import categories from './app/models/categories.js'
 
 const url = 'http://mobile-aceite.tcu.gov.br:80/mapa-da-saude/rest/'
 

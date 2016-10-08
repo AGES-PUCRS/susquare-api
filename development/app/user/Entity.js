@@ -9,9 +9,7 @@ export default class UserEntity {
     createValidation(inputMessage) {
         return new Promise((resolve, reject) => {
             let schema = Joi.object().keys({
-                name: Joi.string().required(),
-                email: Joi.string().email().required(),
-                password: Joi.string().min(8).required()
+                numTelefone: Joi.string().regex(/^[1-9]{2}\-[2-9][0-9]{7,8}$/),
             })
 
             let result = Joi.validate(inputMessage, schema)
@@ -34,7 +32,6 @@ export default class UserEntity {
     create(inputMessage) {
         let adapter = new this.adapter
         let data = {
-            id: this.uuid.v4(),
             ...inputMessage
         }
 

@@ -5,4 +5,4 @@ export default mongoose.model('Establishment', {
       tempoEspera: Number,
       emailAgendamento: String,
       uriAtendimento: String
-});
+})

@@ -10,6 +10,6 @@ const model = mongoose.model('Attendance', {
       dispositivoMarca: String,
       dispositivoSisOp: String,
       dispositivoSisOpVersao: String,
-});
+})
 
 export default model
