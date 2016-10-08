@@ -2,6 +2,7 @@ import restify from 'restify'
 import config from './config'
 import UserTranslator from './app/user/Translator'
 import axios from 'axios'
+import mock from '../susquare.js'
 
 const url = 'http://mobile-aceite.tcu.gov.br:80/mapa-da-saude/rest/'
 
@@ -31,11 +32,13 @@ server.get('/estabelecimentos', (req, res, next) => {
 
     const options = req.params
 
-    axios.get(endpoint, {
-            params: options
-        })
-        .then(response => res.send(response.data))
-        .catch(error => res.send(error))
+    res.send(mock)
+
+    // axios.get(endpoint, {
+    //         params: options
+    //     })
+    //     .then(response => res.send(response.data))
+    //     .catch(error => res.send(error))
 })
 
 server.get('/estabelecimentos/:id', (req, res, next) => {
@@ -73,7 +76,7 @@ server.get('/estabelecimentos/:id/especialidades', (req, res, next) => {
 
 server.get('/estabelecimentos/latitude/:latitude/longitude/:longitude/raio/:radius', (req, res, next) => {
     const endpoint = url + 'estabelecimentos/latitude/' + req.params.latitude + '/longitude/' + req.params.longitude + '/raio/' + req.params.radius
-    
+
     const options = {
         texto: req.params.texto || null,
         categoria: req.params.categoria || null,
