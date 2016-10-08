@@ -39,8 +39,8 @@ export default class AttendanceEntity {
 
 	create(inputMessage) {
 		let attendanceAdapter = new this.Adapter
+
 		let data = {
-				_id: this.uuid.v4(),
 				...inputMessage
 		}
 
