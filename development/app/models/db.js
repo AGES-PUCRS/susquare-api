@@ -24,4 +24,4 @@ process.on('SIGINT', () => {
   })
 })
 
-require('./Attendance')
+require('./Attendance').default

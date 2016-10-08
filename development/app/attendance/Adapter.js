@@ -7,17 +7,10 @@ export default class AttendanceAdapter {
 	}
 
 	save(inputMessage) {
-		return new Promise((resolve, reject) => {
+		let attendance = new this.Attendance(inputMessage)
 
-			let attendance = new this.Attendance(inputMessage)
-
-			attendance.save((err) => {
-				if (err) {
-					reject(err)
-				} else {
-					resolve({})
-				}
-			})
+		return attendance.save().then((data) => {
+			return data
 		})
 	}
 }
