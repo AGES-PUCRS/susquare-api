@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-export default mongoose.model('Attendance', {
+const model = mongoose.model('Attendance', {
       codUnidade: String,
       checkInMetodo: Number,
       latCheckIn: Number,
@@ -11,3 +11,5 @@ export default mongoose.model('Attendance', {
       dispositivoSisOp: String,
       dispositivoSisOpVersao: String,
 });
+
+export default model

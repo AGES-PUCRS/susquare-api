@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 import config from '../../config'
 
-let dbURI = config.databaseUrl
+const dbURI = config.databaseUrl
 
 mongoose.connect(dbURI)
 
