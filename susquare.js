@@ -1,4 +1,4 @@
-[{
+module.exports = [{
 	"codCnes": 6436595,
 	"codUnidade": "4314906436595",
 	"codIbge": 431490,
