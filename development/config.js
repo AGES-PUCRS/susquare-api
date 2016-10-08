@@ -1,4 +1,4 @@
 export default {
-    databaseUrl: 'https://reddo-df3a1.firebaseio.com',
+    databaseUrl: 'mongodb://localhost/susquare',
     port: process.env.PORT || 8888
 }
