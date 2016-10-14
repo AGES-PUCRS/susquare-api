@@ -5,6 +5,7 @@ import mock from '../susquare.js'
 import UserTranslator from './app/user/Translator'
 import Attendancetranslator from './app/attendance/Translator'
 import db from './app/models/db'
+import fs from 'fs'
 
 const url = 'http://mobile-aceite.tcu.gov.br:80/mapa-da-saude/rest/'
 
@@ -21,7 +22,11 @@ server.get('/test', (req, res, next) => {
 })
 
 server.get('/', (req, res, next) => {
-    res.end('Hello!')
+	console.log('ALO')
+    fs.readFile('./index.html', 'utf8',(err, data) => {
+		console.log(data)
+		res.end(data)
+	})
 })
 
 server.post('/user', (req, res, next) => {
