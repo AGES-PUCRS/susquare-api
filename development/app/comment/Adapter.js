@@ -1,15 +1,15 @@
 import config from '../../config'
 import mongoose from 'mongoose'
 
-export default class AttendanceAdapter {
+export default class CommentAdapter {
 	constructor(deps = {}) {
-		this.Attendance = mongoose.model('Attendance')
+		this.Comment = mongoose.model('Comment')
 	}
 
 	save(inputMessage) {
-		let attendance = new this.Attendance(inputMessage)
+		let comment = new this.Comment(inputMessage)
 
-		return attendance.save().then((data) => {
+		return comment.save().then((data) => {
 			return data
 		})
 	}

@@ -1,5 +1,5 @@
 import Joi from 'joi'
-export default class AttendanceEntity {
+export default class CommentEntity {
 	constructor(deps = {}) {
 		this.uuid = deps.uuid || require('node-uuid')
 		this.Adapter = deps.Adapter || require('./Adapter').default
@@ -7,7 +7,9 @@ export default class AttendanceEntity {
 
 	validate(inputMessage) {
         return new Promise((resolve, reject) => {
-            let schema = Joi.object().keys({
+            let schema =  //fazer verificações e tal
+			
+				/*Joi.object().keys({
 				codUnidade: Joi.string().required(),
 				checkInMetodo: Joi.number().required(),
 				latCheckIn: Joi.number().required(),
@@ -16,7 +18,7 @@ export default class AttendanceEntity {
 				dispositivoModelo: Joi.string().required(),
 				dispositivoMarca: Joi.string().required(),
 				dispositivoSisOp: Joi.string().required(),
-				dispositivoSisOpVersao: Joi.string().required()
+				dispositivoSisOpVersao: Joi.string().required()*/
 			})
 
 
@@ -38,12 +40,12 @@ export default class AttendanceEntity {
     }
 
 	create(inputMessage) {
-		let attendanceAdapter = new this.Adapter
+		let commentAdapter = new this.Adapter
 
 		let data = {
 				...inputMessage
 		}
 
-		return attendanceAdapter.save(data)
+		return commentAdapter.save(data)
 	}
 }

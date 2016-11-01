@@ -1,14 +1,14 @@
-export default class AttendanceInteractor {
+export default class CommentInteractor {
 	constructor (deps = {}) {
 		this.Entity = deps.Entity || require('./Entity').default
 	}
 
 	create(inputMessage) {
-		let attendanceEntity = new this.Entity
+		let commentEntity = new this.Entity
 
-		return attendanceEntity.validate(inputMessage)
+		return commentEntity.validate(inputMessage)
 			.then(outputMessage => {
-				attendanceEntity.create(outputMessage)
+				commentEntity.create(outputMessage)
 			})
 	}
 }

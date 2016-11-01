@@ -1,15 +1,15 @@
 import {statusCodes} from '../constants/constants'
 
-export default class AttendanceTranslator {
+export default class CommentTranslator {
 	constructor (deps = {}) {
 		this.Interactor = deps.Interactor || require('./Interactor').default
 	}
 
 	post(req, res, next) {
 		const inputMessage = req && req.body || {}
-		const attendanceInteractor = new this.Interactor
+		const commentInteractor = new this.Interactor
 
-		attendanceInteractor.create(inputMessage)
+		commentInteractor.create(inputMessage)
 			.then(outputMessage => {
 				res.json(201, outputMessage)
 			})
