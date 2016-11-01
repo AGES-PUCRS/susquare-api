@@ -7,12 +7,12 @@ export default class CommentEntity {
 
 	validate(inputMessage) {
         return new Promise((resolve, reject) => {
-            let schema =  //fazer verificações e tal			
+            let schema =  //fazer verificações e tal		
 				Joi.object().keys({
 				idAtendimento: Joi.string().required(),
 				tipoComentario: Joi.string().required(),
 				comentario: Joi.string().required(),
-				timestampComentario: Joi.date().timestamp().required(),
+				//timestampComentario: Joi.date().timestamp().required(), //feito pelo mongo?
 				//imagens: Joi.array().items(imagem) //joi para imagem separado
 			})
 

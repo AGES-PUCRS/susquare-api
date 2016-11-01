@@ -4,6 +4,7 @@ import axios from 'axios'
 import mock from '../susquare.js'
 import UserTranslator from './app/user/Translator'
 import Attendancetranslator from './app/attendance/Translator'
+import CommentTranslator from './app/comment/Translator'
 import db from './app/models/db'
 import fs from 'fs'
 
