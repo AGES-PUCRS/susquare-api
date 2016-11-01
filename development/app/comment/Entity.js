@@ -7,18 +7,13 @@ export default class CommentEntity {
 
 	validate(inputMessage) {
         return new Promise((resolve, reject) => {
-            let schema =  //fazer verificações e tal
-			
-				/*Joi.object().keys({
-				codUnidade: Joi.string().required(),
-				checkInMetodo: Joi.number().required(),
-				latCheckIn: Joi.number().required(),
-				longCheckIn: Joi.string().required(),
-				timestampCheckIn: Joi.date().timestamp().required(),
-				dispositivoModelo: Joi.string().required(),
-				dispositivoMarca: Joi.string().required(),
-				dispositivoSisOp: Joi.string().required(),
-				dispositivoSisOpVersao: Joi.string().required()*/
+            let schema =  //fazer verificações e tal			
+				Joi.object().keys({
+				idAtendimento: Joi.string().required(),
+				tipoComentario: Joi.string().required(),
+				comentario: Joi.string().required(),
+				timestampComentario: Joi.date().timestamp().required(),
+				//imagens: Joi.array().items(imagem) //joi para imagem separado
 			})
 
 
