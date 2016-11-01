@@ -103,7 +103,21 @@ server.post('/attendance', (req, res, next) => {
     let attendanceTranslator = new Attendancetranslator
     attendanceTranslator.post(req, res, next)
 })
+//;/////comentarios
+//só esqueletos preparados por enquanto (n sei o que estou fazendo btw)
+server.post('/attendance/:idAttendance/comment', (req, res, next) => {
+	let commentTranslator = new CommentTranslator
+	commentTranslator.post(req, res, next)
+})
 
+server.get('/attendance/:idAttendance/comment', (req, res, next) => {
+	let commentTranslator = new CommentTranslator
+	commentTranslator.get(req,res,next)
+		.then(response => res.send(response.data))
+		.catch(error => res.send(error))
+})
+
+////////////////fim comentarios
 server.listen(config.port, () => {
     console.log('Server listening at ' + config.port)
 })
