@@ -41,11 +41,11 @@ server.get('/estabelecimentos', (req, res, next) => {
 
     res.send(mock)
 
-    // axios.get(endpoint, {
-    //         params: options
-    //     })
-    //     .then(response => res.send(response.data))
-    //     .catch(error => res.send(error))
+    axios.get(endpoint, {
+		params: options
+		})
+		.then(response => res.send(response.data))
+		.catch(error => res.send(error))
 })
 
 server.get('/estabelecimentos/:id', (req, res, next) => {
