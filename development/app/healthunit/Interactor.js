@@ -3,6 +3,12 @@ export default class HealthunitInteractor {
 		this.Entity = deps.Entity || require('./Entity').default
 	}
 
+	view(inputMessage){
+		let healthunitEntity = new this.Entity
+
+		return healthunitEntity.view(inputMessage)
+	}
+
 	create(inputMessage) {
 		let healthunitEntity = new this.Entity
 

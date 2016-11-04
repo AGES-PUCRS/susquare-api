@@ -4,6 +4,7 @@ import axios from 'axios'
 import mock from '../susquare.js'
 import UserTranslator from './app/user/Translator'
 import Attendancetranslator from './app/attendance/Translator'
+import HealthunitTranslator from './app/healthunit/Translator'
 import db from './app/models/db'
 import fs from 'fs'
 
@@ -39,21 +40,31 @@ server.get('/estabelecimentos', (req, res, next) => {
 
     const options = req.params
 
-    res.send(mock)
+    let healthunitTranslator = new HealthunitTranslator()
 
+    healthunitTranslator.get(req, res, next)
+
+    /*
     axios.get(endpoint, {
 		params: options
 		})
 		.then(response => res.send(response.data))
 		.catch(error => res.send(error))
+    */
 })
 
 server.get('/estabelecimentos/:id', (req, res, next) => {
     let endpoint = url + 'estabelecimentos/unidade/' + req.params.id
 
+    let healthunitTranslator = new HealthunitTranslator()
+
+    healthunitTranslator.get(req, res, next)
+
+    /*
     axios.get(endpoint)
        .then(response => res.send(200, response.data))
        .catch(errorMessage => res.send(errorMessage))
+    */
 })
 
 server.get('/estabelecimentos/:id/servicos/', (req, res, next) => {

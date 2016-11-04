@@ -23,4 +23,23 @@ export default class HealthunitTranslator {
 				res.json(statusCode, outputMessage)
 			})
 	}
+
+	get(req, res, next) {
+		const inputMessage = req && req.body || {}
+		const healthunitInteractor = new this.Interactor
+
+		healthunitInteractor.view(inputMessage)
+			.then(outputMessage => {
+				res.json(201, outputMessage)
+			})
+			.catch(outputMessage => {
+				let statusCode = outputMessage.statusCode || statusCodes.ServerError
+				
+				if(outputMessage.error && outputMessage.error.name) {
+					statusCode = statusCodes[outputMessage.error.name]
+				}
+
+				res.json(statusCode, outputMessage)
+			})
+	}
 }

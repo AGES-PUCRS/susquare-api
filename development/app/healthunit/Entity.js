@@ -5,7 +5,16 @@ export default class HealthunitEntity {
 		this.Adapter = deps.Adapter || require('./Adapter').default
 	}
 
+	view(inputMessage){
+		let healthunitAdapter = new this.Adapter
+
+		let codUnidade = inputMessage.params.id || {}
+
+		return healthunitAdapter.find(inputMessage)
+	}
+
 	validate(inputMessage) {
+		//TODO
         return new Promise((resolve, reject) => {
             let schema = Joi.object().keys({
 			
