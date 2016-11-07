@@ -16,5 +16,8 @@ export default class HealthunitInteractor {
 			.then(outputMessage => {
 				healthunitEntity.create(outputMessage)
 			})
+			.catch(outputMessage => {
+				outputMessage
+			})
 	}
 }

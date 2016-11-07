@@ -8,6 +8,7 @@
     "build": "npm run build-server",
     "start": "node ./production/server.js",
     "start-dev": "nodemon ./production/server.js",
+	"start-makito": "babel-node ./development/server.js",
     "test": "mocha --compilers js:babel-core/register  --recursive --reporter nyan -c development/tests/**/*.js",
     "watch": "mocha --compilers js:babel-core/register --recursive --reporter nyan -c --watch development/tests/**/*.js"
   },

@@ -8,12 +8,7 @@ export default class HealthunitAdapter {
 	}
 
 	find(inputMessage) {
-		let healthunit = new this.Healthunit(inputMessage)
-
-		let codUnidade = inputMessage.params.id || {}
-
-
-		return healthunit.find({ 'codUnidade':id })
+		return this.Healthunit.find(inputMessage)
 	}
 
 	save(inputMessage) {

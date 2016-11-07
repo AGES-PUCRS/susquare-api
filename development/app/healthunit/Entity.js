@@ -8,16 +8,21 @@ export default class HealthunitEntity {
 	view(inputMessage){
 		let healthunitAdapter = new this.Adapter
 
-		let codUnidade = inputMessage.params.id || {}
+		console.log(inputMessage)
 
-		return healthunitAdapter.find(inputMessage)
+		let params = inputMessage.params || {}
+
+		return healthunitAdapter.find(params)
 	}
 
 	validate(inputMessage) {
 		//TODO
         return new Promise((resolve, reject) => {
             let schema = Joi.object().keys({
-			
+				codUnidade: Joi.string().required(),
+				tempoEspera: Joi.number(),
+				emailAgendamento: Joi.string().required(),
+				uriEstabelecimento: Joi.string().required()
 			})
 
 

@@ -4,6 +4,6 @@
 */
 
 export default {
-    databaseUrl: process.env.URL_MONGO || 'mongodb://10.32.223.4/susquare' ,
+    databaseUrl: 'localhost:27017' ,
     port: process.env.PORT || 8888
 }

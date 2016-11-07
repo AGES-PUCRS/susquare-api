@@ -25,7 +25,6 @@ server.get('/test', (req, res, next) => {
 server.get('/', (req, res, next) => {
 	console.log('ALO')
     fs.readFile('./index.html', 'utf8',(err, data) => {
-		console.log(data)
 		res.end(data)
 	})
 })
@@ -53,9 +52,9 @@ server.get('/estabelecimentos', (req, res, next) => {
     */
 })
 
-server.get('/estabelecimentos/:id', (req, res, next) => {
-    let endpoint = url + 'estabelecimentos/unidade/' + req.params.id
-
+server.get('/estabelecimentos/:codUnidade', (req, res, next) => {
+    let endpoint = url + 'estabelecimentos/unidade/' + req.params.codUnidade
+    console.log(req)
     let healthunitTranslator = new HealthunitTranslator()
 
     healthunitTranslator.get(req, res, next)
@@ -108,6 +107,12 @@ server.get('/estabelecimentos/latitude/:latitude/longitude/:longitude/raio/:radi
         })
         .then(response => res.send(response.data))
         .catch(error => res.send(error))
+})
+
+server.post('/estabelecimentos', (req, res, next) => {
+    let healthunitTranslator = new HealthunitTranslator()
+
+    healthunitTranslator.post(req, res, next)
 })
 
 server.post('/attendance', (req, res, next) => {

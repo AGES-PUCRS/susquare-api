@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
-
-const model = mongoose.model('Attendance', {
+const schema = new mongoose.Schema(
+	 {
       codUnidade: String,
       checkInMetodo: Number,
       latCheckIn: Number,
@@ -9,7 +9,10 @@ const model = mongoose.model('Attendance', {
       dispositivoModelo: String,
       dispositivoMarca: String,
       dispositivoSisOp: String,
-      dispositivoSisOpVersao: String,
-});
+      dispositivoSisOpVersao: String
+  }, { timestamps: { createdAt: 'created_at' } }
+)
+
+const model = mongoose.model('Attendance', schema);
 
 export default model
