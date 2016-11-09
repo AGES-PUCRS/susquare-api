@@ -107,6 +107,9 @@ server.post('/attendance', (req, res, next) => {
 //;/////comentarios
 //só esqueletos preparados por enquanto (n sei o que estou fazendo btw)
 server.post('/attendance/:idAttendance/comment', (req, res, next) => {
+	
+	//pega a/as imagens recebidas e retransforma em string base 64???
+	
 	let commentTranslator = new CommentTranslator
 	commentTranslator.post(req, res, next)
 })
