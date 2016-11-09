@@ -8,7 +8,7 @@ export default class CommentInteractor {
 
 		return commentEntity.validate(inputMessage)
 			.then(outputMessage => {
-				commentEntity.create(outputMessage)
+				return commentEntity.create(outputMessage)
 			})
 	}
 }

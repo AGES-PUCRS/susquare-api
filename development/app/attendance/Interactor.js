@@ -8,7 +8,7 @@ export default class AttendanceInteractor {
 
 		return attendanceEntity.validate(inputMessage)
 			.then(outputMessage => {
-				attendanceEntity.create(outputMessage)
+				return attendanceEntity.create(outputMessage)
 			})
 	}
 }

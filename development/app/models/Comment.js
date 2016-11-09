@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+import timeStamp from 'mongoose-timestamp'
 
 const model = mongoose.model('Comment', {
     idAtendimento: String,

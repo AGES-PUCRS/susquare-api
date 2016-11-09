@@ -7,6 +7,8 @@ export default class UserInteractor {
         let userEntity = new this.userEntity
         
         return userEntity.createValidation(inputMessage)
-            .then(outputMessage => userEntity.create(outputMessage))
+            .then(outputMessage => {
+            	return userEntity.create(outputMessage)
+            })
     }
 }
