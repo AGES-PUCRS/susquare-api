@@ -1,5 +1,4 @@
 import mongoose from 'mongoose'
-import timeStamp from 'mongoose-timestamp'
 
 const schema = new mongoose.Schema({
 	idAtendimento: String,
