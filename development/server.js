@@ -54,16 +54,9 @@ server.get('/estabelecimentos', (req, res, next) => {
 
 server.get('/estabelecimentos/:codUnidade', (req, res, next) => {
     let endpoint = url + 'estabelecimentos/unidade/' + req.params.codUnidade
-    console.log(req)
     let healthunitTranslator = new HealthunitTranslator()
 
     healthunitTranslator.get(req, res, next)
-
-    /*
-    axios.get(endpoint)
-       .then(response => res.send(200, response.data))
-       .catch(errorMessage => res.send(errorMessage))
-    */
 })
 
 server.get('/estabelecimentos/:id/servicos/', (req, res, next) => {

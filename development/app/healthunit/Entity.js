@@ -11,8 +11,10 @@ export default class HealthunitEntity {
 		console.log(inputMessage)
 
 		let params = inputMessage.params || {}
+		let healthunits = healthunitAdapter.find(params)
+		
 
-		return healthunitAdapter.find(params)
+		//return healthunitAdapter.find(params)
 	}
 
 	validate(inputMessage) {
