@@ -13,11 +13,7 @@ export default class CommentAdapter {
 	}
 	
 	finde(tipoComentario){
-		let Comment = mongoose.model('Comment')
 		
-		return Comment.find(function (err, tipoComment) {
-		if (err) return handleError(err);
-		console.log('deu ruim')
-		}).then(data => data)
+		return this.Comment.find(tipoComentario).then(data => data)
 	}
 }

@@ -25,8 +25,8 @@ export default class CommentTranslator {
 	get(req, res, next){
 		const commentInteractor = new this.Interactor
 
-		commentInteractor.finde('E')
-			.then(resposta => res.send(resposta.data))
+		commentInteractor.finde({tipoComentario: "E"})
+			.then(resposta => res.json(200, resposta.data))
 			.catch(outputMessage => {
 				let statusCode = outputMessage.statusCode || statusCodes.ServerError
 				
