@@ -10,7 +10,7 @@ export default class CommentEntity {
             let schema =  //fazer verificações e tal		
 				Joi.object().keys({
 				idAtendimento: Joi.string().required(),
-				tipoComentario: Joi.string().regex(/C|E/).required(), //essa regex nao faz nada
+				tipoComentario: Joi.string().valid(['C', 'E']).required(), //essa regex nao faz nada
 				comentario: Joi.string().required(), 
 				//imagens: Joi.array().items(imagem) //joi para imagem separado
 			})
@@ -41,5 +41,10 @@ export default class CommentEntity {
 		}
 
 		return commentAdapter.save(data)
+	}
+	
+	finde(tipoComentario){
+		let commentAdapter = new this.Adapter
+		return commentAdapter.finde(tipoComentario)
 	}
 }

@@ -12,10 +12,10 @@ export default class CommentAdapter {
 		return comment.save().then((data) => data)
 	}
 	
-	find(tipoComentario){
-		let comment = new this.Comment()
+	finde(tipoComentario){
+		let Comment = mongoose.model('Comment')
 		
-		return comment.find({ 'tipoComentario': 'E' }, function (err, tipoComment) {
+		return Comment.find(function (err, tipoComment) {
 		if (err) return handleError(err);
 		console.log('deu ruim')
 		}).then(data => data)

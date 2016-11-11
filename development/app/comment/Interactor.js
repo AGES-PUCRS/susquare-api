@@ -9,4 +9,10 @@ export default class CommentInteractor {
 		return commentEntity.validate(inputMessage)
 			.then(outputMessage => commentEntity.create(outputMessage))
 	}
+	
+	finde(tipoComentario){
+		let commentEntity = new this.Entity
+		
+		return commentEntity.finde(tipoComentario)
+	}
 }

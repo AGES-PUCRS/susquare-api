@@ -114,11 +114,9 @@ server.post('/attendance/:idAttendance/comment', (req, res, next) => {
 	commentTranslator.post(req, res, next)
 })
 
-server.get('/attendance/:idAttendance/comment', (req, res, next) => {
+server.get('/attendance/comment', (req, res, next) => {
 	let commentTranslator = new CommentTranslator
 	commentTranslator.get(req,res,next)
-		.then(response => res.send(response.data))
-		.catch(error => res.send(error))
 })
 
 ////////////////fim comentarios
