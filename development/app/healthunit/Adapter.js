@@ -1,5 +1,6 @@
 import config from '../../config'
 import mongoose from 'mongoose'
+import axios from 'axios'
 
 export default class HealthunitAdapter {
 	constructor(deps = {}) {
@@ -9,6 +10,17 @@ export default class HealthunitAdapter {
 
 	find(inputMessage) {
 		return this.Healthunit.find(inputMessage)
+			.then(healthunits => {
+				//console.log(healthunits)
+				return healthunits
+			})
+	}
+
+	findTCU(uriEstabelecimento){
+		//console.log(uriEstabelecimento)
+		return axios.get(uriEstabelecimento).then(response => {
+			return response.data[0]
+		}) 
 	}
 
 	save(inputMessage) {
