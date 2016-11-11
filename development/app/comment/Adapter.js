@@ -9,8 +9,15 @@ export default class CommentAdapter {
 	save(inputMessage) {
 		let comment = new this.Comment(inputMessage)
 
-		return comment.save().then((data) => {
-			return data
-		})
+		return comment.save().then((data) => data)
+	}
+	
+	find(tipoComentario){
+		let comment = new this.Comment()
+		
+		return comment.find({ 'tipoComentario': 'E' }, function (err, tipoComment) {
+		if (err) return handleError(err);
+		console.log('deu ruim')
+		}).then(data => data)
 	}
 }

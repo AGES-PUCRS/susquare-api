@@ -7,8 +7,6 @@ export default class CommentInteractor {
 		let commentEntity = new this.Entity
 
 		return commentEntity.validate(inputMessage)
-			.then(outputMessage => {
-				return commentEntity.create(outputMessage)
-			})
+			.then(outputMessage => commentEntity.create(outputMessage))
 	}
 }

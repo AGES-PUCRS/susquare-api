@@ -10,9 +10,8 @@ export default class CommentEntity {
             let schema =  //fazer verificações e tal		
 				Joi.object().keys({
 				idAtendimento: Joi.string().required(),
-				tipoComentario: Joi.string().required(),
-				comentario: Joi.string().required(),
-				//timestampComentario: Joi.date().timestamp().required(), //feito pelo mongo?
+				tipoComentario: Joi.string().regex(/C|E/).required(), //essa regex nao faz nada
+				comentario: Joi.string().required(), 
 				//imagens: Joi.array().items(imagem) //joi para imagem separado
 			})
 

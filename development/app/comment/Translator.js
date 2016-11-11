@@ -1,7 +1,7 @@
 import {statusCodes} from '../constants/constants'
 
 export default class CommentTranslator {
-	constructor (deps = {}) {
+	constructor (deps = {}){
 		this.Interactor = deps.Interactor || require('./Interactor').default
 	}
 
@@ -10,9 +10,7 @@ export default class CommentTranslator {
 		const commentInteractor = new this.Interactor
 
 		commentInteractor.create(inputMessage)
-			.then(outputMessage => {
-				res.json(201, outputMessage)
-			})
+			.then(outputMessage => res.json(201, outputMessage))
 			.catch(outputMessage => {
 				let statusCode = outputMessage.statusCode || statusCodes.ServerError
 				
