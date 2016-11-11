@@ -26,3 +26,5 @@ process.on('SIGINT', () => {
 
 require('./Attendance').default
 require('./Comment').default
+require('./User').default
+require('./Healthunit').default

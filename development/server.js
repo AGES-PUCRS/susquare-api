@@ -5,6 +5,7 @@ import mock from '../susquare.js'
 import UserTranslator from './app/user/Translator'
 import Attendancetranslator from './app/attendance/Translator'
 import CommentTranslator from './app/comment/Translator'
+import HealthunitTranslator from './app/healthunit/Translator'
 import db from './app/models/db'
 import fs from 'fs'
 
@@ -40,21 +41,24 @@ server.get('/estabelecimentos', (req, res, next) => {
 
     const options = req.params
 
-    res.send(mock)
+    let healthunitTranslator = new HealthunitTranslator()
 
-    // axios.get(endpoint, {
-    //         params: options
-    //     })
-    //     .then(response => res.send(response.data))
-    //     .catch(error => res.send(error))
+    healthunitTranslator.get(req, res, next)
+
+    /*
+    axios.get(endpoint, {
+		params: options
+		})
+		.then(response => res.send(response.data))
+		.catch(error => res.send(error))
+    */
 })
 
-server.get('/estabelecimentos/:id', (req, res, next) => {
-    let endpoint = url + 'estabelecimentos/unidade/' + req.params.id
+server.get('/estabelecimentos/:codUnidade', (req, res, next) => {
+    let endpoint = url + 'estabelecimentos/unidade/' + req.params.codUnidade
+    let healthunitTranslator = new HealthunitTranslator()
 
-    axios.get(endpoint)
-       .then(response => res.send(200, response.data))
-       .catch(errorMessage => res.send(errorMessage))
+    healthunitTranslator.get(req, res, next)
 })
 
 server.get('/estabelecimentos/:id/servicos/', (req, res, next) => {
@@ -100,16 +104,18 @@ server.get('/estabelecimentos/latitude/:latitude/longitude/:longitude/raio/:radi
         .catch(error => res.send(error))
 })
 
+server.post('/estabelecimentos', (req, res, next) => {
+    let healthunitTranslator = new HealthunitTranslator()
+
+    healthunitTranslator.post(req, res, next)
+})
+
 server.post('/attendance', (req, res, next) => {
     let attendanceTranslator = new Attendancetranslator
     attendanceTranslator.post(req, res, next)
 })
-//;/////comentarios
-//só esqueletos preparados por enquanto (n sei o que estou fazendo btw)
+
 server.post('/attendance/:idAttendance/comment', (req, res, next) => {
-	
-	//pega a/as imagens recebidas e retransforma em string base 64???
-	
 	let commentTranslator = new CommentTranslator
 	commentTranslator.post(req, res, next)
 })
