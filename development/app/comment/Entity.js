@@ -42,9 +42,4 @@ export default class CommentEntity {
 
 		return commentAdapter.save(data)
 	}
-	
-	finde(tipoComentario){
-		let commentAdapter = new this.Adapter
-		return commentAdapter.finde(tipoComentario)
-	}
 }

@@ -11,9 +11,4 @@ export default class CommentAdapter {
 
 		return comment.save().then((data) => data)
 	}
-	
-	finde(tipoComentario){
-		
-		return this.Comment.find(tipoComentario).then(data => data)
-	}
 }
