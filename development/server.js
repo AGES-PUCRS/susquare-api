@@ -23,7 +23,6 @@ server.get('/test', (req, res, next) => {
 })
 
 server.get('/', (req, res, next) => {
-	console.log('ALO')
     fs.readFile('./index.html', 'utf8',(err, data) => {
 		res.end(data)
 	})

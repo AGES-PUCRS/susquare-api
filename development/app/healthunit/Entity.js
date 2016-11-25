@@ -6,17 +6,35 @@ export default class HealthunitEntity {
 	}
 
 	view(inputMessage){
-		let healthunitAdapter = new this.Adapter
+		return new Promise((resolve, reject) => {
+			let healthunitAdapter = new this.Adapter
+			let params = inputMessage.params || {}
 
-		console.log(inputMessage)
+			healthunitAdapter.find(params)
+				.then(susquareHealthUnitList => {
+					let mergedHealthUnitsList = susquareHealthUnitList.map((susquareHealthUnit) =>{
+						return new Promise((resolve, reject) => {
+							healthunitAdapter.findTCU(susquareHealthUnit.uriEstabelecimento)
+								.then((tcuHealthUnit) => { 
+									let mergedHealthUnit = { //TO DO: arranjar um jeito mais agradavel de fazer isso
+										...tcuHealthUnit,
+										tempoEspera:susquareHealthUnit.tempoEspera,
+										emailAgendamento:susquareHealthUnit.emailAgendamento,
+										agendamentos:susquareHealthUnit.agendamentos,
+										uriEstabelecimento:susquareHealthUnit.uriEstabelecimento
+									}
+									resolve(mergedHealthUnit)
+								})
+								.catch((error) => reject(error))
+						})
+					})
 
-		let params = inputMessage.params || {}
-		let healthunits = healthunitAdapter.find(params)
-		
+					Promise.all(mergedHealthUnitsList).then( array => resolve(array) )
+				})
+		})
 
-		//return healthunitAdapter.find(params)
 	}
-
+	
 	validate(inputMessage) {
 		//TODO
         return new Promise((resolve, reject) => {
