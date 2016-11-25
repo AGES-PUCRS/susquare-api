@@ -4,11 +4,11 @@ import CommentTranslator from '../../app/comment/Translator'
 describe('The Comment Translator', () => {
 	describe('post method', () => {
 		it('should call create from interactor', () => {
-			let createdCall = false;
+			let createdCalled = false;
 			let receivedMessage = null;
 			
 			let deps = {
-				interactor: class {
+				Interactor: class {
 					create(inputMessage) {
 						createdCalled = true
 						receivedMessage = inputMessage
@@ -31,9 +31,9 @@ describe('The Comment Translator', () => {
             expect(receivedMessage).to.eql({some:'comment data'})
 		})
 		
-		it('should respond with status code 201', () => {
+		it('should respond with status code 201', (done) => {
 			let deps = {
-				interactor: class {
+				Interactor: class {
 					create() {
 						return new Promise ((resolve, reject) =>{
 							resolve()
@@ -52,9 +52,28 @@ describe('The Comment Translator', () => {
 			let instance = new CommentTranslator(deps)
 			instance.post(null, res)
 		})
-		
-		it('should respond with status code ???')
-		it('should respond with status code ???')
-		it('should respond with status code ???')
-	}
-}
+
+		it('should respond with status code 500 if there was an internal error', (done) => {
+            let deps = {
+                Interactor: class {
+                    create() {
+                        return new Promise((resolve, reject) => {
+                            reject({error: 'some error'})
+                        })
+                    }
+                }
+            }
+
+            let res = {
+                json(statusCode, body) {
+                    expect(statusCode).to.be.eql(500)
+                    expect(body).to.be.eql({error: 'some error'})
+                    done()
+                }
+            }
+
+            let instance = new CommentTranslator(deps)
+            instance.post(null, res)
+        })
+	})
+})
