@@ -3,12 +3,12 @@ import UserTranslator from '../../app/user/Translator'
 
 describe('The User Translator', () => {
     describe('post method', () => {
-        it('should call interactor create method with post data', () => {
+        it('should call Interactor create method with post data', () => {
             let createdCalled = false
             let receivedMessage = null
 
             let deps = {
-                interactor: class {
+                Interactor: class {
                     create(inputMessage) {
                         createdCalled = true
                         receivedMessage = inputMessage
@@ -33,7 +33,7 @@ describe('The User Translator', () => {
 
         it('should respond with status code 201 when user was created', (done) => {
             let deps = {
-                interactor: class {
+                Interactor: class {
                     create() {
                         return new Promise((resolve, reject) => {
                             resolve({})
@@ -59,7 +59,7 @@ describe('The User Translator', () => {
         it('should respond with status code 401 if there was an validation error', (done) => {
             let expectedError = {error: {name: 'ValidationError'}}
             let deps = {
-                interactor: class {
+                Interactor: class {
                     create() {
                         return new Promise((resolve, reject) => {
                             reject(expectedError)
@@ -83,7 +83,7 @@ describe('The User Translator', () => {
 
         it('should respond with status code 500 if there was an internal error', (done) => {
             let deps = {
-                interactor: class {
+                Interactor: class {
                     create() {
                         return new Promise((resolve, reject) => {
                             reject({error: 'some error'})

@@ -2,7 +2,7 @@ import {statusCodes} from '../constants/constants'
 
 export default class UserTranslator {
     constructor (deps = {}) {
-        this.Interactor = deps.interactor || require('./Interactor').default
+        this.Interactor = deps.Interactor || require('./Interactor').default
     }
 
     post (req, res, next) {
